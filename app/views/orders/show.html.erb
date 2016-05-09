@@ -7,12 +7,13 @@
 
 <p>
   <strong>Status:</strong>
-  <%= @order.status %>
+  <%= @order.status_string %>
 </p>
-
 <p>
   <strong>Produtos registrados:</strong>
-  <%= @order.products %>
+  <% @order.products.each do |product| %>
+    <%= product.nome %>
+  <% end %>
 </p>
 
 <%= link_to 'Editar', edit_order_path(@order) %> |

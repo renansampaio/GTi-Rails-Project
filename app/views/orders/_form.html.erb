@@ -16,13 +16,16 @@
     <%= f.number_field :número %>
   </div>
 
-   <div class="field">
-    <%= f.label :products %><br>
-    <%= collection_check_boxes(:order, :product_ids, Product.all, :id, :nome) %>
+  <div class="field">
+    <%= f.label "Produtos" %><br>
+    <% Product.all.each do |product| %>
+      <%= check_box_tag "order[product_ids][]", product.id , @order.product_ids.include?(product.id) %>
+      <%= product.nome %><br>
+      <% end %>
   </div>
 
   <div class="field">
-    <%= f.label :status %><br>
+    <%= f.label 'Status (Marque para Aberta)' %><br>
     <%= f.check_box :status %>
   </div>
 

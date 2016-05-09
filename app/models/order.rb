@@ -6,4 +6,8 @@ class Order < ActiveRecord::Base
 
 	validates_presence_of :número
 	
+def status_string
+		status ? "Aberta" : "Fechada"
+	end
+	
 end

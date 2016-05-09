@@ -15,8 +15,8 @@
     <% @orders.each do |order| %>
       <tr>
         <td><%= order.número %></td>
-        <td><%= order.status %></td>
-        <td><%= order.product.nome %></td>
+        <td><%= order.status_string %></td>
+        
         <td><%= link_to 'Mostrar', order %></td>
         <td><%= link_to 'Editar', edit_order_path(order) %></td>
         <td><%= link_to 'Deletar', order, method: :delete, data: { confirm: 'Você tem certeza?' } %></td>
@@ -27,4 +27,5 @@
 
 <br>
 
-<%= link_to 'Nova Comanda', new_order_path %>
+<%= link_to 'Gerar Comanda', new_order_path, class: 'button' %>
+<%= link_to 'Voltar', root_path, class: 'button' %>
